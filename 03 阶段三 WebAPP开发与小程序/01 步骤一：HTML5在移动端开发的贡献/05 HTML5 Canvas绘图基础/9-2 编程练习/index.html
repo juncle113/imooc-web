@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: gray;
+        }
+
+        #bgCanvas {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="wordCanvas"></canvas>
+    <canvas id="bgCanvas"></canvas>
+
+    <script>
+        var bgCanvas = document.getElementById("bgCanvas");
+        bgCanvas.width = 417;
+        bgCanvas.height = 220;
+        var bgCanvasCtx = bgCanvas.getContext("2d");
+
+        var wordCanvas = document.getElementById("wordCanvas");
+        wordCanvas.width = 417;
+        wordCanvas.height = 220;
+        var wordCanvasCtx = wordCanvas.getContext("2d");
+
+        var bgimg = new Image();
+        bgimg.src = "bg.jpg";
+        bgimg.onload = function () {
+            bgCanvasCtx.drawImage(bgimg, 0, 0);
+            wordCanvasCtx.drawImage(bgCanvas, 0, 0);
+
+            wordCanvasCtx.font = "36px sans-serif";
+            wordCanvasCtx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            wordCanvasCtx.textAlign = "center";
+            wordCanvasCtx.fillText("=www.imooc.com=", 208, 190);
+        }
+
+    </script>
+</body>
+</html>
