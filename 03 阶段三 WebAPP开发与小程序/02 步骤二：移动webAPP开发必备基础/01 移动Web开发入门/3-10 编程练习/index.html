@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            height: 80px;
+            background-color: black;
+            display: flex;
+            font-size: 16px;
+        }
+
+        .nav li {
+            color: white;
+            list-style-type: none;
+        }
+
+        header,
+        .logo,
+        .nav,
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .nav li {
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .login input[type='button'] {
+            background-color: orange;
+            color: white;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="">
+        </div>
+        <ul class="nav">
+            <li>课程</li>
+            <li>路径</li>
+            <li>猿问</li>
+            <li>手记</li>
+        </ul>
+        <div class="login">
+            <input type="button" value="登录">
+            <input type="button" value="注册">
+        </div>
+    </header>
+</body>
+
+</html>
