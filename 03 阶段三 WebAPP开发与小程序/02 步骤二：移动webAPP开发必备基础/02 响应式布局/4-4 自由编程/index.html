@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgb(220, 220, 220);
+            min-width: 375px;
+            height: 80px;
+        }
+
+        nav,
+        .logo {
+            flex-grow: 1;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        nav li {
+            list-style-type: none;
+        }
+
+        .row-nav li {
+            margin-left: 30px;
+        }
+
+        nav li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .col-nav {
+            background-color: rgb(220, 220, 220);
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s;
+        }
+
+        .col-nav-extended {
+            height: 97px;
+        }
+
+        .col-nav ul {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid rgb(200, 200, 200);
+        }
+
+        .col-nav li {
+            line-height: 32px;
+            height: 32px;
+            width: 98%;
+            text-align: center;
+        }
+
+        .col-nav a {
+            color: rgb(100, 100, 100);
+        }
+
+        .col-nav li+li {
+            border-top: 1px solid rgb(200, 200, 200);
+        }
+
+        .nav-toggle-container {
+            width: 80px;
+            height: 100%;
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top-right-radius: 100%;
+        }
+
+        .nav-toggle {
+            width: 40px;
+            height: 4px;
+            background-color: white;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .row-nav {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-toggle-container {
+                display: none;
+            }
+
+            .col-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-toggle-container" id="nav-toggle-container">
+            <div class="nav-toggle"></div>
+            <div class="nav-toggle"></div>
+        </div>
+
+        <nav class="row-nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">商业合作</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="images/logo.png" />
+        </div>
+    </header>
+    <nav class="col-nav" id="col-nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">商业合作</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        var colNav = document.getElementById("col-nav");
+        var navToggleContainer = document.getElementById("nav-toggle-container");
+        navToggleContainer.addEventListener("click", function () {
+            if (colNav.classList.contains("col-nav-extended")) {
+                colNav.classList.remove("col-nav-extended");
+            } else {
+                colNav.classList.add("col-nav-extended");
+            }
+        });
+    </script>
+</body>
+
+</html>
